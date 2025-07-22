@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Conecta Territorios - Unimos caminos para cambiar realidades</title>
+    <link rel="stylesheet" href="css/enhanced-responsive.css">
+    <link rel="icon" type="image/x-icon" href="imgs/favicon.ico">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="imgs/logo.png">
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li class="active"><a href="#quienes-somos">Quiénes Somos</a></li>
+                <li><a href="./services.html">Servicios</a></li>
+                <li><a href="./projects.html">Proyectos</a></li>
+                <li><a href="./works.html">Obras por Impuestos</a></li>
+                <li><a href="./contact.html">Contacto</a></li>
+            </ul>
+            <div class="mobile-menu" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Quienes Somos Section -->
+    <section id="section-top" class="about">
+        <div class="section-container">            
+            <div class="section-grid-top">
+                <div class="banner-section-1">
+                    <img src="imgs/aboutInterno.jpg">
+                </div>
+                
+                <div class="section-1-content">
+                    <h3>Quiénes Somos</h3>
+                    <p>
+                        Somos una empresa colombiana orientada a transformar positivamente los territorios mediante soluciones que combinan planeación estratégica, ingeniería de calidad y un profundo entendimiento del entorno social y administrativo. 
+                        <br><br>
+                        Trabajamos con entidades públicas y privadas, articulando esfuerzos para hacer realidad proyectos que impactan en la infraestructura, los servicios públicos, la movilidad, la educación, el desarrollo rural y la equidad territorial. 
+                        <br><br>
+                        Nos especializamos en crear soluciones viables, sostenibles y adaptadas a las realidades de cada región, fortaleciendo capacidades institucionales y promoviendo la participación ciudadana.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="section-middle" class="about">
+        <div class="section-container-middle">
+            <div class="middle-content">
+                <div class="middle-text">
+                    <h1>Conectamos<br>territorios con<br>cooperación activa</h1>
+                </div>
+                <div class="middle-image">
+                    <img src="imgs/middleAbout.png">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="section-bottom" class="about">
+        <div class="section-container">            
+            <div class="section-grid-bottom">
+                <div class="banner-bottom">
+                    <img src="imgs/bannerBottom.png">
+                </div>
+                
+                <div class="section-bottom-content">
+                    <p>
+                        Nuestro equipo está conformado por profesionales con alto sentido de responsabilidad y experiencia en ingeniería, arquitectura, derecho público, administración de proyectos, finanzas y desarrollo social, lo que nos permite ejecutar con rigor técnico y sentido humano.
+                        <br><br>
+                        En cada intervención buscamos establecer relaciones de confianza con comunidades, entidades y aliados estratégicos, entendiendo que el desarrollo territorial se construye desde la cooperación, el respeto por el entorno y la apuesta constante por la excelencia.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            3106256034 - conectaterritorios@gmail.com / Santander, Colombia
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

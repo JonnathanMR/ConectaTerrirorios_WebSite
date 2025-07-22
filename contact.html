@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Conecta Territorios - Unimos caminos para cambiar realidades</title>
+    <link rel="stylesheet" href="css/enhanced-responsive.css">
+    <link rel="icon" type="image/x-icon" href="imgs/favicon.ico">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="imgs/logo.png">
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="./about.html">Quiénes Somos</a></li>
+                <li><a href="./services.html">Servicios</a></li>
+                <li><a href="./projects.html">Proyectos</a></li>
+                <li><a href="./works.html">Obras por Impuestos</a></li>
+                <li class="active"><a href="#contacto">Contacto</a></li>
+            </ul>
+            <div class="mobile-menu" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <section id="section-top" class="about">
+        <div class="section-container">            
+            <div class="contacto-container">
+                <div class="contacto-desc">
+                    <img src="./imgs/bannerContact.png">
+                    <div class="desc">
+                        <p>
+                        En Conecta Territorios creemos en el poder de las alianzas para transformar realidades. Si tienes una idea, proyecto o iniciativa y deseas construir soluciones con impacto, estamos listos para escucharte.
+                        <br><br>
+                        Completa el formulario, escríbenos o llámanos. Estamos aquí para sumar esfuerzos, conectar capacidades y  trabajar juntos por el desarrollo de los territorios.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="contacto-form">
+                    <table class="form-group">
+                        <tr>
+                            <td class="td-title" colspan="2"><h1>Contacto</h1></td>
+                        </tr>
+                        <tr>
+                            <td class="contacto-label">Nombre:<input name="Nombre"></td>
+                            <td class="contacto-label">Celular:<input name="Celular"></td>
+                        </tr>
+                        <tr>
+                            <td class="contacto-label" colspan="2">Email:<input name="Email"></td>
+                        </tr>
+                        <tr>
+                            <td class="contacto-label" colspan="2">Mensaje:<textarea rows="10"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td class="contacto-button" colspan="2"><button class="custom-button" onclick="navigate('about')">Enviar</button></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="service-container-1"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            3106256034 - conectaterritorios@gmail.com / Santander, Colombia
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

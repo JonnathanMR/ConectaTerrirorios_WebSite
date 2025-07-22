@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="icon" type="image/x-icon" href="imgs/favicon.ico">
+    <title>Conecta Territorios - Unimos caminos para cambiar realidades</title>
+    <link rel="stylesheet" href="css/enhanced-responsive.css">
+    
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="imgs/logo.png">
+            </div>
+            <ul class="nav-links">
+                <li class="active"><a href="#inicio">Inicio</a></li>
+                <li><a href="./about.html">Quiénes Somos</a></li>
+                <li><a href="./services.html">Servicios</a></li>
+                <li><a href="./projects.html">Proyectos</a></li>
+                <li><a href="./works.html">Obras por Impuestos</a></li>
+                <li><a href="./contact.html">Contacto</a></li>
+            </ul>
+            <div class="mobile-menu" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="about">
+        <div class="hero-content">
+            <h1>Conectamos<br>territorios con<br>desarrollo.</h1>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="quienes-somos" class="about">
+        <div class="containerQS">
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="imgs/banneQS.png">
+                </div>
+                <div class="about-text">
+                    <h3>Quiénes Somos</h3>
+                    <p>Somos una empresa colombiana orientada a transformar positivamente los territorios mediante soluciones que combinan planeación estratégica, ingeniería de calidad y un profundo entendimiento del entorno social y administrativo.</p>
+                    <button class="custom-button" onclick="navigate('about')">Conocer Más</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicios" class="about">
+        <div class="containerS">
+            <h2>Servicios</h2>    
+            <div class="services-grid">
+                <div class="service-card1"></div>
+
+                <div class="service-card2"></div>
+
+                <div class="service-card3"></div>
+
+                <div class="service-card4"></div>
+
+                <div class="service-card5"></div>
+            </div>
+            <div class="services-grid">
+                <div class="service-card-text1">Obras Civiles</div>
+
+                <div class="service-card-text2">Gerencia Integral<br>de Proyectos</div>
+
+                <div class="service-card-text3">Consultria<br>Especializada</div>
+
+                <div class="service-card-text4">Interventoria y<br>Supervisión</div>
+
+                <div class="service-card-text5">Proyectos con<br>Financiación Alternativa</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Obras por Impuestos Section -->
+    <section id="obras-impuestos" class="about">
+        <div class="containerOP">            
+            <div class="obras-grid">
+                <div class="obras-info">
+                    <h3>Obras por<br>Impuestos</h3>
+                    <p>
+                        En Conecta Territorios, comprendemos que este esquema representa una oportunidad única para el sector privado de generar valor compartido.
+                        <br><br>
+                        Nos especializamos en transformar la obligación tributaria en una herramienta poderosa de desarrollo local y equidad territorial.
+                    </p>
+                    <button class="custom-button">Conocer Más</button>
+                </div>
+                
+                <div class="obras-impuestos-right">
+                    <img src="imgs/bannerObras.png">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experiencia Section -->
+    <section id="experiencia" class="about">
+        <div class="containerE">            
+            <div class="experiencia-grid">
+                <div class="experiencia-info">
+                    <h3>Experiencia</h3>
+                    <p>
+                        En Conecta Territorios contamos con una trayectoria sólida en la estructuración, gerencia y ejecución de proyectos de alto impacto. Nuestra experiencia se refleja en intervenciones                      concretas en sectores como                            infraestructura vial, dotación educativa, fortalecimiento institucional y atención a emergencias, siempre con un enfoque social, técnico y territorial que garantiza resultados sostenibles.
+                    </p>
+                    <button class="custom-button-b">Conocer Más</button>
+                </div>
+                
+                <div class="experiencia-right">
+                    <img src="imgs/bannerE.png">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="about">
+        <div class="containerContacto">            
+            <div class="contact-content">
+                <div class="contact-info">
+                    Conversemos y construyamos juntos soluciones que generan impacto real.
+                </div>
+            </div>
+
+            <div class="contact-button">
+                <button class="custom-button-b1" onclick="navigate('contact')">Contacto</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            3106256034 - conectaterritorios@gmail.com / Santander, Colombia
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle with improved functionality
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            navLinks.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            
+            // Close menu when clicking a link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', function() {
+                    navLinks.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                });
+            });
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 1)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #ffffff 0%, #ffffff 100%)';
+                header.style.backdropFilter = 'none';
+            }
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.service-card, .project-card, .stat-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        function navigate(org) {
+            window.location.replace(org+'.html');
+        }
+    </script>
+</body>
+</html>

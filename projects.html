@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conecta Territorios - Unimos caminos para cambiar realidades</title>
+    <link rel="icon" type="image/x-icon" href="imgs/favicon.ico">
+    <link rel="stylesheet" href="css/enhanced-responsive.css">
+    <link rel="icon" type="image/x-icon" href="imgs/favicon.ico">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="imgs/logo.png">
+            </div>
+            <ul class="nav-links">
+                <li><a href="./index.html">Inicio</a></li>
+                <li><a href="./about.html">Quiénes Somos</a></li>
+                <li><a href="./services.html">Servicios</a></li>
+                <li class="active"><a href="#proyectos">Proyectos</a></li>
+                <li><a href="./works.html">Obras por Impuestos</a></li>
+                <li><a href="./contact.html">Contacto</a></li>
+            </ul>
+            <div class="mobile-menu" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <section id="section-top" class="about">
+        <div class="project-container-1">
+            <div class="projects-title">
+                <h3>Proyectos</h3>
+            </div>           
+            
+            <!--<div class="project-card">
+                <div class="project-card-content">
+                    <div class="project-card-content-L">
+                        <grid-container>
+                            <grid-item class="img-pri">
+                                <img src="./imgs/7DD15C85.webp">
+                            </grid-item>
+                            <grid-item class="img-sec">
+                                <img src="./imgs/7DD15C87.webp">
+                            </grid-item>
+                            <grid-item class="img-sec">
+                                <img src="./imgs/7DD15C82.webp">
+                            </grid-item>
+                        </grid-container>
+                    </div>
+
+                    <div class="project-card-content-R">
+                        <h3>Gerencia Patrimonio Autónomo OXI La Belleza 2024</h3>
+                        <p>
+                            <b>Clientes:</b> Icoharinas y Líneas Hospitalarias<br><br>
+                            <b>Ubicación:</b> La Belleza, Santander<br><br>
+                            <b>Proyecto:</b> Mejoramiento de las vías urbanas y rurales mediante la construcción de placa huellas en el municipio de La Belleza – Santander<br><br>
+                            <b>Estado:</b> En ejecución
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-card-content">
+                    <div class="project-card-content-L">
+                        <grid-container>
+                            <grid-item class="img-pri">
+                                <img src="./imgs/7DD15C8D.webp">
+                            </grid-item>
+                            <grid-item class="img-sec">
+                                <img src="./imgs/7DD15C8F.webp">
+                            </grid-item>
+                            <grid-item class="img-sec">
+                                <img src="./imgs/7DD15C83.webp">
+                            </grid-item>
+                        </grid-container>
+                    </div>
+
+                    <div class="project-card-content-R">
+                        <h3>Apoyo a la gerencia – Apuestas La Perla</h3>
+                        <p>
+                            <b>Clientes:</b> Apuestas La Perla<br><br>
+                            <b>Ubicación:</b> Matanza y El Playón, Santander<br><br>
+                            <b>Proyecto:</b>• Dotación de ambientes escolares y oficinas administrativas en las sedes educativas oficiales del municipio de Matanza.
+                                            • Dotación de mobiliario escolar para las instituciones educativas del municipio de El Playón - Santander <br><br>
+                            <b>Estado:</b> En ejecución
+                        </p>
+                    </div>
+
+                </div>
+            </div>-->
+
+
+            <!-- plantilla -->
+             <div class="project-card" id="card-template" style="display: none;">
+                <div class="project-card-content">
+                    <div class="project-card-content-L">
+                    <grid-container>
+                        <grid-item class="img-pri">
+                        <img class="img1" src="">
+                        </grid-item>
+                        <grid-item class="img-sec">
+                        <img class="img2" src="">
+                        </grid-item>
+                        <grid-item class="img-sec">
+                        <img class="img3" src="">
+                        </grid-item>
+                    </grid-container>
+                    </div>
+
+                    <div class="project-card-content-R">
+                    <h3 class="titulo"></h3>
+                    <p>
+                        <b>Clientes:</b> <span class="cliente"></span><br><br>
+                        <b>Ubicación:</b> <span class="ubicacion"></span><br><br>
+                        <b>Proyecto:</b> <span class="descripcion"></span><br><br>
+                        <b>Estado:</b> <span class="estado"></span>
+                    </p>
+                    </div>
+                </div>
+            </div>
+            <!-- plantilla -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            3106256034 - conectaterritorios@gmail.com / Santander, Colombia
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+
+        $(document).ready(function () {
+            $.get('http://localhost:3000/api/proyectos', function (procesos) {
+            procesos.forEach(function (proceso) {
+                // Clona la plantilla
+                const $card = $('#card-template').clone().removeAttr('id').show();
+
+                // Llena los datos
+                $card.find('.img1').attr('src', 'http://localhost:3000/uploads/' + proceso.imagen1);
+                $card.find('.img2').attr('src', 'http://localhost:3000/uploads/' + proceso.imagen2);
+                $card.find('.img3').attr('src', 'http://localhost:3000/uploads/' + proceso.imagen3);
+
+                $card.find('.titulo').text(proceso.titulo);
+                $card.find('.cliente').text(proceso.cliente);
+                $card.find('.ubicacion').text(proceso.ubicacion);
+                $card.find('.descripcion').text(proceso.descripcion);
+                $card.find('.estado').text(proceso.estado);
+
+                // Inserta el card después del template
+                $('#card-template').after($card);
+            });
+            });
+        });
+    </script>
+</body>
+</html>

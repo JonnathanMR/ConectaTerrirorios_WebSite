@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conecta Territorios - Unimos caminos para cambiar realidades</title>
+    <link rel="icon" type="image/x-icon" href="imgs/favicon.ico">
+    <link rel="stylesheet" href="css/enhanced-responsive.css">
+    <link rel="icon" type="image/x-icon" href="imgs/favicon.ico">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="imgs/logo.png">
+            </div>
+            <ul class="nav-links">
+                <li><a href="./index.html">Inicio</a></li>
+                <li><a href="./about.html">Quiénes Somos</a></li>
+                <li><a href="./services.html">Servicios</a></li>
+                <li><a href="./projects.html">Proyectos</a></li>
+                <li class="active"><a href="./works.html">Obras por Impuestos</a></li>
+                <li><a href="./contact.html">Contacto</a></li>
+            </ul>
+            <div class="mobile-menu" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <section id="section-top" class="about">
+        <div class="process-container-1">
+            <div class="projects-title">
+                <h3>Procesos</h3>
+            </div>           
+
+            <!-- plantilla -->
+             <div class="project-card" id="card-template" style="display: none;">
+                <div class="process-card-content">
+                    <div class="process-parent">
+                        <div class="process-div1 titulo">Titulo Documento</div>
+                        <div class="process-div2">
+                           <button class="custom-button descargar-btn">Descargar</button>
+
+                        </div>
+                    </div> 
+                </div>
+            </div>
+            <!-- plantilla -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            3106256034 - conectaterritorios@gmail.com / Santander, Colombia
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+
+        $(document).ready(function () {
+            $.get('http://localhost:3000/api/procesos', function (procesos) {
+                procesos.forEach(function (proceso) {
+                    // Clona la plantilla
+                    const $card = $('#card-template').clone().removeAttr('id').show();
+
+                    $card.find('.titulo').text(proceso.titulo);
+                    // Establece la URL real del PDF en el botón
+                    $card.find('.descargar-btn').attr('data-url', 'http://localhost:3000/' + proceso.archivo_pdf);
+
+                    // Inserta el card después del template
+                    $('#card-template').after($card);
+                });
+            });
+
+            // Manejador para abrir el PDF
+            $(document).on('click', '.descargar-btn', function () {
+                const url = $(this).data('url');
+                if (url) {
+                    window.open(url, '_blank');
+                } else {
+                    alert("No hay archivo disponible.");
+                }
+            });
+        });
+    </script>
+</body>
+</html>
